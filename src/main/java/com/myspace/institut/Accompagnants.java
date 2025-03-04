@@ -5,6 +5,7 @@ package com.myspace.institut;
  */
 
 @javax.persistence.Entity
+@javax.persistence.Table(name = "Accompagnants")
 public class Accompagnants implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
@@ -14,10 +15,10 @@ public class Accompagnants implements java.io.Serializable {
 	@javax.persistence.SequenceGenerator(sequenceName = "ACCOMPAGNANTS_ID_SEQ", name = "ACCOMPAGNANTS_ID_GENERATOR")
 	private java.lang.Long id;
 
-	@org.kie.api.definition.type.Label(value = "firstName")
+	@org.kie.api.definition.type.Label("firstName")
 	private java.lang.String firstName;
 
-	@org.kie.api.definition.type.Label(value = "lastName")
+	@org.kie.api.definition.type.Label("lastName")
 	private java.lang.String lastName;
 
 	public Accompagnants() {
