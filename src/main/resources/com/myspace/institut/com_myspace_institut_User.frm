@@ -1,0 +1,1 @@
+{"id":"4e6e4483-3b44-47d7-a365-342988b5dd90","name":"com_myspace_institut_User","model":{"source":"INTERNAL","className":"com.myspace.institut.User","name":"User","properties":[],"formModelType":"org.kie.workbench.common.forms.data.modeller.model.DataObjectFormModel"},"fields":[],"layoutTemplate":{"version":3,"style":"FLUID","layoutProperties":{},"rows":[]}}
