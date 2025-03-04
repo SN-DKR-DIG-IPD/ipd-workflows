@@ -7,29 +7,52 @@ package com.myspace.institut;
 @javax.persistence.Entity
 public class OrdreDeMission implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    @javax.persistence.GeneratedValue(generator = "ORDREDEMISSION_ID_GENERATOR", strategy = javax.persistence.GenerationType.AUTO)
-    @javax.persistence.Id
-    @javax.persistence.SequenceGenerator(sequenceName = "ORDREDEMISSION_ID_SEQ", name = "ORDREDEMISSION_ID_GENERATOR")
-    private java.lang.Long id;
+	@javax.persistence.GeneratedValue(generator = "ORDREDEMISSION_ID_GENERATOR", strategy = javax.persistence.GenerationType.AUTO)
+	@javax.persistence.Id
+	@javax.persistence.SequenceGenerator(sequenceName = "ORDREDEMISSION_ID_SEQ", name = "ORDREDEMISSION_ID_GENERATOR")
+	private java.lang.Long id;
 
-    public OrdreDeMission() {
-    }
-    
-    public OrdreDeMission(java.lang.Long id) {
-        this.id = id;
-    }
+	@javax.persistence.ManyToOne(fetch = javax.persistence.FetchType.EAGER, cascade = {javax.persistence.CascadeType.ALL})
+	@org.kie.api.definition.type.Label(value = "demandeur")
+	private com.myspace.institut.User demandeur;
 
-    public java.lang.Long getId() {
-        return this.id;
-    }
-    
-    public void setId(java.lang.Long id) {
-        this.id = id;
-    }
+	@org.kie.api.definition.type.Label(value = "type")
+	private java.lang.String type;
 
+	public OrdreDeMission() {
+	}
 
+	public java.lang.Long getId() {
+		return this.id;
+	}
 
+	public void setId(java.lang.Long id) {
+		this.id = id;
+	}
+
+	public com.myspace.institut.User getDemandeur() {
+		return this.demandeur;
+	}
+
+	public void setDemandeur(com.myspace.institut.User demandeur) {
+		this.demandeur = demandeur;
+	}
+
+	public java.lang.String getType() {
+		return this.type;
+	}
+
+	public void setType(java.lang.String type) {
+		this.type = type;
+	}
+
+	public OrdreDeMission(java.lang.Long id,
+			com.myspace.institut.User demandeur, java.lang.String type) {
+		this.id = id;
+		this.demandeur = demandeur;
+		this.type = type;
+	}
 
 }
