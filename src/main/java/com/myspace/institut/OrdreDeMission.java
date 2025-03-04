@@ -14,12 +14,15 @@ public class OrdreDeMission implements java.io.Serializable {
 	@javax.persistence.SequenceGenerator(sequenceName = "ORDREDEMISSION_ID_SEQ", name = "ORDREDEMISSION_ID_GENERATOR")
 	private java.lang.Long id;
 
+	@org.kie.api.definition.type.Label("demandeur")
 	@javax.persistence.ManyToOne(fetch = javax.persistence.FetchType.EAGER, cascade = {javax.persistence.CascadeType.ALL})
-	@org.kie.api.definition.type.Label(value = "demandeur")
 	private com.myspace.institut.User demandeur;
 
-	@org.kie.api.definition.type.Label(value = "type")
+	@org.kie.api.definition.type.Label("type")
 	private java.lang.String type;
+
+	@org.kie.api.definition.type.Label(value = "accompagnants")
+	private java.lang.String accompagnants;
 
 	public OrdreDeMission() {
 	}
@@ -48,11 +51,21 @@ public class OrdreDeMission implements java.io.Serializable {
 		this.type = type;
 	}
 
+	public java.lang.String getAccompagnants() {
+		return this.accompagnants;
+	}
+
+	public void setAccompagnants(java.lang.String accompagnants) {
+		this.accompagnants = accompagnants;
+	}
+
 	public OrdreDeMission(java.lang.Long id,
-			com.myspace.institut.User demandeur, java.lang.String type) {
+			com.myspace.institut.User demandeur, java.lang.String type,
+			java.lang.String accompagnants) {
 		this.id = id;
 		this.demandeur = demandeur;
 		this.type = type;
+		this.accompagnants = accompagnants;
 	}
 
 }
