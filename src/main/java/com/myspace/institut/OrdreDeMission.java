@@ -21,8 +21,9 @@ public class OrdreDeMission implements java.io.Serializable {
 	@org.kie.api.definition.type.Label("type")
 	private java.lang.String type;
 
+	@javax.persistence.OneToMany(fetch = javax.persistence.FetchType.EAGER, cascade = {javax.persistence.CascadeType.ALL})
 	@org.kie.api.definition.type.Label(value = "accompagnants")
-	private java.lang.String accompagnants;
+	private java.util.List<com.myspace.institut.Accompagnants> accompagnants;
 
 	public OrdreDeMission() {
 	}
@@ -51,17 +52,18 @@ public class OrdreDeMission implements java.io.Serializable {
 		this.type = type;
 	}
 
-	public java.lang.String getAccompagnants() {
+	public java.util.List<com.myspace.institut.Accompagnants> getAccompagnants() {
 		return this.accompagnants;
 	}
 
-	public void setAccompagnants(java.lang.String accompagnants) {
+	public void setAccompagnants(
+			java.util.List<com.myspace.institut.Accompagnants> accompagnants) {
 		this.accompagnants = accompagnants;
 	}
 
 	public OrdreDeMission(java.lang.Long id,
 			com.myspace.institut.User demandeur, java.lang.String type,
-			java.lang.String accompagnants) {
+			java.util.List<com.myspace.institut.Accompagnants> accompagnants) {
 		this.id = id;
 		this.demandeur = demandeur;
 		this.type = type;
